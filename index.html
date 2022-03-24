@@ -107,8 +107,8 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
-         var another_canvas = document.getElementById('myCanvas2'); /* this command will only show the blue color intensity of each pixel so that's what will be shown on the other canvas */
-         var some_context = another_canvas.getContext("2d"); /* this will create a surface for our canvas */
+         var other_canvas = document.getElementById('Canvas2'); /* this command will only show the blue color intensity of each pixel so that's what will be shown on the other canvas */
+         var some_context = other_canvas.getContext("2d"); /* this will create a surface for our canvas */
          var imageData = context.getImageData(0, 0, 600, 500);
          var data = imageData.data; /* this code is for the pixels of a given area of the canvas */
          for(var i = 0, n = data.length; i < n; i += 4) { /* this line of code will is for the canvas image that will only be displaying the blue color intensities of the pixels */
@@ -156,6 +156,15 @@
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
       </script>
+     
+     <canvas id="other_canvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> <!--HTML for the second canvas with blue intensities shown -->
+      <script>
+      var other_canvas = document.getElementById('Canvas2'); /* this line of code will call "Canvas2" and save it as a variable */
+      var some_context = other_canvas.getContext("2d"); /* this line of code creates the context for the canvas being made */
+      some_context.font = '20pt Calibri'; /* this line of code sets style and font settings */
+     some_context.fillStyle = "black"; /* cthis line of code sets the color */
+     some_context.fillText("The colored image will go here!", 10,20); /* this line of code sets the coordinates */
+     </script>
 
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
