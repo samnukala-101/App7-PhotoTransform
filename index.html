@@ -107,8 +107,17 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
-          
-          
+         var another_canvas = document.getElementById('myCanvas2'); /* this command will only show the blue color intensity of each pixel so that's what will be shown on the other canvas */
+         var some_context = another_canvas.getContext("2d"); /* this will create a surface for our canvas */
+         var imageData = context.getImageData(0, 0, 600, 500);
+         var data = imageData.data; /* this code is for the pixels of a given area of the canvas */
+         for(var i = 0, n = data.length; i < n; i += 4) { /* this line of code will is for the canvas image that will only be displaying the blue color intensities of the pixels */
+         
+          data[i + 1] = 0; /* this command will set any green intensities to zero */ 
+          data[i] = 0; /* this code will set any red intensities to zero */
+         }
+         
+         some_context.putImageData(imageData, 0, 0); /* this line of code applies to functions are going to be displayed on the second canvas or the image with color intensity showing */
           
         } // end of img.onload
         
